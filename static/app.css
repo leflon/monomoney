@@ -1,0 +1,142 @@
+/* monopoly/src/app.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Silkscreen&family=Pixelify+Sans&family=Material+Symbols+Outlined&display=swap');
+
+/*
+  Font options:
+  - 'Press Start 2P', cursive; (Classic 8-bit)
+  - 'VT323', monospace; (Clean pixel, good for body)
+  - 'Silkscreen', sans-serif; (Clean, sharp pixel font)
+  - 'Pixelify Sans', sans-serif; (Modern, variable pixel font)
+*/
+
+:root {
+	/* Dark Theme Color Palette */
+	--background-color: #1a1a1a;
+	--surface-color: #2c2c2c;
+	--primary-text-color: #e0e0e0;
+	--secondary-text-color: #a0a0a0;
+	--accent-color: #4a90e2; /* A nice blue */
+	--accent-color-hover: #63a4ff;
+	--border-color: #444;
+	--danger-color: #e24a4a;
+	--danger-color-hover: #ff6363;
+	--success-color: #4ae28a;
+
+	/* Fonts */
+	--font-heading: 'Press Start 2P', cursive;
+	--font-body: 'VT323', monospace;
+
+	/* Border Radius */
+	--border-radius: 4px;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--primary-text-color);
+	font-family: var(--font-body);
+	margin: 0;
+	padding: 0;
+	font-size: 18px; /* VT323 looks good at this size */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-heading);
+	color: var(--accent-color);
+	text-shadow: 2px 2px 0px #000;
+}
+
+/* --- CSS Patterns --- */
+
+/* Diagonal Stripes Background (Zébré) */
+.pattern-stripes-diagonal {
+	background-color: var(--surface-color);
+	background-image: repeating-linear-gradient(
+		45deg,
+		transparent,
+		transparent 10px,
+		rgba(0, 0, 0, 0.2) 10px,
+		rgba(0, 0, 0, 0.2) 20px
+	);
+}
+
+/* Zebra Stripes Border */
+.border-stripes-zebra {
+	border: 10px solid transparent;
+	border-image: repeating-linear-gradient(
+			-45deg,
+			var(--accent-color),
+			var(--accent-color) 10px,
+			var(--background-color) 10px,
+			var(--background-color) 20px
+		)
+		10;
+}
+
+/* Dotted Pattern */
+.pattern-dots {
+	background-color: var(--surface-color);
+	background-image: radial-gradient(rgba(0, 0, 0, 0.2) 2px, transparent 0);
+	background-size: 20px 20px;
+}
+
+/* --- General Component Styles --- */
+
+button {
+	font-family: var(--font-body);
+	background-color: var(--accent-color);
+	color: #fff;
+	border: none;
+	padding: 10px 15px;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	transition: background-color 0.2s;
+	font-size: 16px;
+	border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
+	transition: border-bottom-width 0.1s;
+}
+
+button:hover {
+	background-color: var(--accent-color-hover);
+}
+
+button:focus {
+	border-bottom-width: 0px;
+}
+
+button.danger {
+	background-color: var(--danger-color);
+}
+
+button.danger:hover {
+	background-color: var(--danger-color-hover);
+}
+
+input,
+select {
+	font-family: var(--font-body);
+	background-color: var(--surface-color);
+	color: var(--primary-text-color);
+	border: 1px solid var(--border-color);
+	padding: 8px;
+	border-radius: var(--border-radius);
+	font-size: 16px;
+}
+
+input:focus,
+select:focus {
+	outline: 2px solid var(--accent-color);
+	border-color: transparent;
+}
+
+button,
+a [role='button'] {
+	touch-action: manipulation;
+}
